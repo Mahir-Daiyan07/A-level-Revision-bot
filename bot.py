@@ -26,10 +26,11 @@ bot = RevisionBot()
 
 @bot.event
 async def on_ready():
-    print(f"*********")
-    print(f"Logged in as: {bot.user} (ID: {bot.user.id})")
-    print(f"Status: Online and ready to help!")
-    print(f"*********")
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="/revision-plan"))
+    print("**********")
+    print(f"Logged in as: {bot.user}")
+    print("Status: Online and ready to help!")
+    print("**********")
 # 1. /revision-plan Command
 @bot.tree.command(name="revision-plan", description="Generate a high-yield, A*-focused 3-day revision strategy.")
 @app_commands.describe(subject="The A-Level subject you want to revise (e.g., Maths, Physics, Chemistry)")
