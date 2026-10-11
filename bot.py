@@ -1,5 +1,6 @@
 import discord
 import os
+import re
 from discord import app_commands
 from discord.ext import commands
 import random
@@ -37,29 +38,29 @@ async def on_ready():
 async def revision_plan(interaction: discord.Interaction, subject: str):
     """
     Generates a structured revision breakdown prioritizing past papers and 
-    timed conditions[cite: 1].
+    timed conditions.
     """
     embed = discord.Embed(
         title=f"High-Yield Revision Plan: {subject.upper()}",
-        description="Designed to maximize efficiency using active recall and past paper repetition[cite: 1].",
+        description="Designed to maximize efficiency using active recall and past paper repetition.",
         color=discord.Color.blue()
     )
     
     embed.add_field(
         name="Day 1: Timed Past Paper & Gap Analysis",
-        value="• Sit a full past paper under strict exam conditions (no phone, water only)[cite: 1].\n• Mark it rigorously and log every question you struggled with.",
+        value="• Sit a full past paper under strict exam conditions (no phone, water only).\n• Mark it rigorously and log every question you struggled with.",
         inline=False
     )
     
     embed.add_field(
         name="Day 2: Targeted Weakness & Cheat Sheet Building",
-        value="• Re-attempt the difficult questions from yesterday[cite: 1].\n• Build a concise 1-2 page cheat sheet for formulas and definitions you kept forgetting[cite: 1].",
+        value="• Re-attempt the difficult questions from yesterday.\n• Build a concise 1-2 page cheat sheet for formulas and definitions you kept forgetting.",
         inline=False
     )
     
     embed.add_field(
         name="Day 3: Paper Iteration & Hard Questions",
-        value="• Redo the same past paper to reinforce mastery until you hit close to 100%[cite: 1].\n• Focus heavily on the challenging end-of-paper questions that separate an A* from an A[cite: 1].",
+        value="• Redo the same past paper to reinforce mastery until you hit close to 100%.\n• Focus heavily on the challenging end-of-paper questions that separate an A* from an A[cite: 1].",
         inline=False
     )
     
@@ -72,11 +73,11 @@ async def study_tip(interaction: discord.Interaction):
     Pulls a randomized high-yield revision tip based on proven strategies.
     """
     tips = [
-        "Past Papers are King: Dedicate 95% of your revision effort to past papers under timed, distraction-free exam conditions[cite: 1].",
-        "Build Concise Cheat Sheets: Keep a 1-2 page summary of formulas and tricky concepts that you can review right before the exam[cite: 1].",
-        "Hour-by-Hour Planning: Plan your study sessions to the exact hour the night before to maintain high efficiency (aim for 5-6 solid hours max)[cite: 1].",
-        "Redo Papers: Don't skip a past paper just because you've done it before—redo it until you master every single question[cite: 1].",
-        "Tackle Hard Questions: Don't shy away from difficult end-of-chapter questions; those are what secure an A* grade[cite: 1]."
+        "Past Papers are King: Dedicate 95% of your revision effort to past papers under timed, distraction-free exam conditions.",
+        "Build Concise Cheat Sheets: Keep a 1-2 page summary of formulas and tricky concepts that you can review right before the exam",
+        "Hour-by-Hour Planning: Plan your study sessions to the exact hour the night before to maintain high efficiency (aim for 5-6 solid hours max).",
+        "Redo Papers: Don't skip a past paper just because you've done it before—redo it until you master every single question.",
+        "Tackle Hard Questions: Don't shy away from difficult end-of-chapter questions; those are what secure an A* grade."
     ]
     
     embed = discord.Embed(
