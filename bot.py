@@ -60,7 +60,7 @@ async def revision_plan(interaction: discord.Interaction, subject: str):
     
     embed.add_field(
         name="Day 3: Paper Iteration & Hard Questions",
-        value="• Redo the same past paper to reinforce mastery until you hit close to 100%.\n• Focus heavily on the challenging end-of-paper questions that separate an A* from an A[cite: 1].",
+        value="• Redo the same past paper to reinforce mastery until you hit close to 100%.\n• Focus heavily on the challenging end-of-paper questions that separate an A* from an A.",
         inline=False
     )
     
